@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://iplatform.cablevision.com/namespaces/dvrplus/scheduler" targetNames-pace="http://iplatform.cablevision.com/namespaces/dvrplus/scheduler" elementFormDefault="qualified" version="2.0.3">
+	<xsd:element name="ProvisionHome" type="ProvisionHomeType"/>
+	<!-- defined types -->
+	<xsd:complexType name="ProvisionHomeType">
+		<xsd:annotation>
+			<xsd:documentation>identifies provision home API</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="HouseholdType">
+				<xsd:sequence>
+					<xsd:element name="STBIDList" type="BoxListType"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="UpdateHome" type="ProvisionHomeType"/>
+	<xsd:element name="DeprovisionHome" type="DeprovisionHomeType"/>
+	<xsd:complexType name="DeprovisionHomeType">
+		<xsd:annotation>
+			<xsd:documentation>identifies deprovision home API</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="HouseholdType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ProvisionHomeResponse" type="ProvisionHomeResponseType"/>
+	<xsd:element name="UpdateHomeResponse" type="ProvisionHomeResponseType"/>
+	<xsd:element name="DeprovisionHomeResponse" type="ProvisionHomeResponseType"/>
+	<!-- defined types -->
+	<xsd:element name="ResetHome">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="BoxListType">
+					<xsd:attribute name="CurrentHomeID" type="xsd:integer" use="required"/>
+					<xsd:attribute name="NewHomeID" type="xsd:integer" use="required"/>
+					<xsd:attribute name="ServiceGroup" type="xsd:integer" use="required"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ResetHomeResponse" type="ResetHomeResponseType"/>
+	<xsd:complexType name="ResetHomeResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="ResponseType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="AddSTB">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="HouseholdBoxType"/>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="UpdateSTB">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="HouseholdBoxType"/>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="RemoveSTB">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="HouseholdBoxType"/>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="AddSTBResponse" type="ProvisionHomeResponseType"/>
+	<xsd:element name="UpdateSTBResponse" type="ProvisionHomeResponseType"/>
+	<xsd:element name="RemoveSTBResponse" type="ProvisionHomeResponseType"/>
+	<xsd:complexType name="ProvisionHomeResponseType">
+			<xsd:complexContent>
+				<xsd:extension base="ResponseType">
+				</xsd:extension>
+			</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="GetHomeProfile">
+		<xsd:complexType>
+			<xsd:attribute name="HomeID" type="xsd:integer" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GetHomeProfileDetails">
+		<xsd:complexType>
+			<xsd:attribute name="HomeID" type="xsd:integer" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GetHomes"/>
+	<xsd:element name="GetHomesResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+					<xsd:extension base="ResponseType">
+						<xsd:sequence>
+							<xsd:element name="HomeList" type="HouseholdListType"/>
+						</xsd:sequence>
+					</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="HomeProfileResponse" type="HomeProfileResponseType"/>
+	<xsd:complexType name="HomeProfileResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="HomeResponseType">
+				<xsd:sequence>
+					<xsd:element name="STBProfileList" type="BoxListType"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="HomeProfileDetailsResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="HomeResponseType">
+					<xsd:sequence>
+						<xsd:element name="STBProfileList" type="BoxListType"/>
+						<xsd:element name="RecordingList" type="RecordingInfoListType"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="HomeResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="HouseholdType">
+				<xsd:attribute name="ReasonCode" type="xsd:integer" use="required"/>
+				<xsd:attribute name="ReasonDescription" type="xsd:string" use="required"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="BoxResponseType">
+		<xsd:sequence>
+			<xsd:element name="STBProfileList" type="BoxListType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ScheduleRecording" type="ScheduleRecordingType"/>
+	<xsd:element name="UpdateRecording" type="ScheduleRecordingType"/>
+	<!-- defined types -->
+	<xsd:complexType name="ScheduleRecordingType">
+		<xsd:complexContent>
+			<xsd:extension base="RecordingType">
+				<xsd:sequence>
+					<xsd:element name="PVRList" type="HouseholdBoxListType"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="ScheduleRecordingResponse" type="ScheduleRecordingResponseType"/>
+	<xsd:element name="UpdateRecordingResponse" type="ScheduleRecordingResponseType"/>
+	<xsd:element name="SaveRecording" type="LiveRecordingType"/>
+	<xsd:element name="SaveRecordingResponse" type="ResponseType"/>
+	<xsd:element name="StartLiveRecording" type="LiveRecordingType"/>
+	<xsd:element name="StartLiveRecordingResponse" type="ResponseType"/>
+	<xsd:element name="StopLiveRecording" type="LiveRecordingType"/>
+	<xsd:element name="StopLiveRecordingResponse" type="ResponseType"/>
+	<xsd:element name="StopRecording" type="HomeRecordingType"/>
+	<xsd:element name="StopRecordingResponse" type="ResponseType"/>
+	<xsd:complexType name="ScheduleRecordingResponseType">
+		<xsd:complexContent>
+			<xsd:extension base="ResponseType">
+				<xsd:sequence>
+					<xsd:element name="PVRList" type="HouseholdBoxListType"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="StartLiveMultiRecording" type="LiveMultiRecordingType"/>
+	<xsd:complexType name="LiveMultiRecordingType">
+		<xsd:complexContent>
+			<xsd:extension base="TempRecordingType">
+				<xsd:sequence>
+					<xsd:element name="RecordingList" type="RecordingListType"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="StartLiveMultiRecordingResponse" type="ResponseType"/>
+	<xsd:element name="StopLiveMultiRecording" type="LiveRecordingType"/>
+	<xsd:element name="StopLiveMultiRecordingResponse" type="ResponseType"/>
+	<xsd:complexType name="HomeRecordingType">
+		<xsd:complexContent>
+			<xsd:extension base="RecordingType">
+				<xsd:attribute name="HomeID" type="xsd:integer" use="required"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="HomeRecordingInfoType">
+		<xsd:complexContent>
+			<xsd:extension base="RecordingInfoType">
+				<xsd:attribute name="HomeID" type="xsd:integer" use="required"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="LiveRecordingType">
+		<xsd:complexContent>
+			<xsd:extension base="RecordingType">
+				<xsd:attribute name="HomeID" type="xsd:integer" use="required"/>
+				<xsd:attribute name="MACAddress" type="xsd:NMTOKEN" use="required"/>
+				<xsd:attribute name="TemporaryAssetID" type="xsd:integer" use="required"/>
+				<xsd:attribute name="ServiceGroup" type="xsd:integer" use="required"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="RecordingComplete">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="RecordingInfoType">
+					<xsd:sequence>
+						<xsd:element name="PVRList" type="HouseholdBoxListType"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="RecordingsLost">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="ResponseType">
+					<xsd:sequence>
+						<xsd:element name="RecordingLostList" type="LostRecordingInfoType" maxOc-curs="unbounded"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="LostRecordingInfoType">
+		<xsd:sequence>
+			<xsd:element name="RecordingLost" type="HomeRecordingInfoType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="DeleteRecording">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="PVRList" type="HouseholdBoxListType"/>
+			</xsd:sequence>
+			<xsd:attribute name="AssetID" type="xsd:integer" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="DeleteRecordingsByHome" type="DeleteRecordingsByHomeType"/>
+	<!-- defined types -->
+	<xsd:complexType name="DeleteRecordingsByHomeType">
+		<xsd:annotation>
+			<xsd:documentation>identifies deleteRecordingsBy-Home API</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="HouseholdType">
+				<xsd:sequence>
+					<xsd:element name="RecordingList" type="RecordingListType"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="DeleteRecordingResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="ResponseType">
+					<xsd:sequence>
+						<xsd:element name="PVRList" type="HouseholdBoxListType"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="DeleteRecordingsByHomeResponse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="ResponseType">
+					<xsd:sequence>
+						<xsd:element name="RecordingList" type="RecordingInfoListType"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GetRecordingDetails">
+		<xsd:complexType>
+			<xsd:attribute name="HomeID" type="xsd:integer" use="required"/>
+			<xsd:attribute name="AssetID" type="xsd:integer" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GetRecordingDetailsResponse" type="RecordingDetailsType"/>
+	<xsd:complexType name="RecordingDetailsType">
+		<xsd:complexContent>
+			<xsd:extension base="ResponseType">
+				<xsd:attribute name="PlaybackStatus" type="xsd:boolean"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="GetServiceGroups">
+		<xsd:complexType/>
+	</xsd:element>
+	<xsd:element name="ServiceGroupList">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="ResponseType">
+					<xsd:sequence>
+						<xsd:element ref="ServiceGroup" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ServiceGroup">
+		<xsd:complexType>
+			<xsd:attribute name="ID" type="xsd:integer" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="ResponseListType">
+		<xsd:annotation>
+			<xsd:documentation>identifies response list</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Response" type="ResponseType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ResponseType">
+		<xsd:annotation>
+			<xsd:documentation>identifies re-sponse</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="ReasonCode" type="xsd:integer" use="required"/>
+		<xsd:attribute name="ReasonDescription" type="xsd:string" use="required"/>
+		<xsd:attribute name="RecordingSize" type="xsd:integer" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="RecordingListType">
+		<xsd:annotation>
+			<xsd:documentation>identifies recording list</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Recording" type="RecordingType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RecordingType">
+		<xsd:annotation>
+			<xsd:documentation>identifies record-ing</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="AssetID" type="xsd:integer" use="required"/>
+		<xsd:attribute name="CallSign" type="xsd:string" use="required"/>
+		<xsd:attribute name="StartTime" type="xsd:NMTOKEN" use="required"/>
+		<xsd:attribute name="EndTime" type="xsd:NMTOKEN" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="TempRecordingType">
+		<xsd:annotation>
+			<xsd:documentation>identifies temporary record-ing</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="HomeID" type="xsd:integer" use="required"/>
+		<xsd:attribute name="MACAddress" type="xsd:NMTOKEN" use="required"/>
+		<xsd:attribute name="TemporaryAssetID" type="xsd:integer" use="required"/>
+		<xsd:attribute name="CallSign" type="xsd:string" use="required"/>
+		<xsd:attribute name="ServiceGroup" type="xsd:integer" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="RecordingInfoListType">
+		<xsd:sequence>
+			<xsd:element name="Recording" type="RecordingInfoType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RecordingInfoType">
+		<xsd:annotation>
+			<xsd:documentation>identifies recording informa-tion</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="AssetID" type="xsd:integer" use="required"/>
+		<xsd:attribute name="ReasonCode" type="xsd:integer" use="required"/>
+		<xsd:attribute name="ReasonDescription" use="required"/>
+		<xsd:attribute name="RecordingSize" type="xsd:integer"/>
+	</xsd:complexType>
+	<xsd:complexType name="HouseholdListType">
+		<xsd:annotation>
+			<xsd:documentation>identifies household list</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Home" type="HouseholdType" max-Occurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="HouseholdBoxListType">
+		<xsd:annotation>
+			<xsd:documentation>identifies household list</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="PVRListItem" type="HouseholdBoxType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PVRListItemType">
+		<xsd:complexContent>
+			<xsd:extension base="HouseholdBoxType"/>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="HouseholdType">
+		<xsd:annotation>
+			<xsd:documentation>identifies house-hold</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="HomeID" type="xsd:integer" use="required"/>
+		<xsd:attribute name="ServiceGroup" type="xsd:integer" use="optional"/>
+		<xsd:attribute name="AllocationSize" type="xsd:integer" use="optional"/>
+		<xsd:attribute name="FreeSize" type="xsd:integer" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="HouseholdBoxType">
+		<xsd:annotation>
+			<xsd:documentation>identifies house-hold</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="HomeID" type="xsd:integer" use="required"/>
+		<xsd:attribute name="MACAddress" type="xsd:NMTOKEN" use="required"/>
+		<xsd:attribute name="AllocationSize" type="xsd:integer" use="optional"/>
+		<xsd:attribute name="ReasonCode" type="xsd:integer" use="optional"/>
+		<xsd:attribute name="ReasonDescription" type="xsd:string" use="optional"/>
+		<xsd:attribute name="RecordingSize" type="xsd:integer" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="BoxListType">
+		<xsd:annotation>
+			<xsd:documentation>identifies set-top</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="STBID" type="BoxType" maxOc-curs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BoxType">
+		<xsd:annotation>
+			<xsd:documentation>identifies set-top</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="MACAddress" type="xsd:NMTOKEN" use="required"/>
+		<xsd:attribute name="AllocationSize" type="xsd:integer" use="optional"/>
+		<xsd:attribute name="ReasonCode" type="xsd:integer" use="optional"/>
+		<xsd:attribute name="ReasonDescription" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+</xsd:schema>

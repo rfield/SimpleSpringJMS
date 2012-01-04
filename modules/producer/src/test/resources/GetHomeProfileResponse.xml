@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HomeProfileResponse ReasonCode="200" ReasonDescription="Ok" FreeSize="120000000" AllocationSize="160000000" HomeID="1001" ServiceGroup="2"
+xsi:schemaLocation="http://iplatform.cablevision.com/namespaces/dvrplus/scheduler dvr-plus-server.xsd" xmlns="http://iplatform.cablevision.com/namespaces/dvrplus/scheduler" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<STBProfileList>
+		<STBID MACAddress="112233bbccdd"/>
+	</STBProfileList>
+</HomeProfileResponse>

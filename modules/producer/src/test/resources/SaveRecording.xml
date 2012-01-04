@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SaveRecording TemporaryAssetID="1000001" StartTime="2011-03-02T12:00:00Z" MACAddress="001122aabbcc" EndTime="2011-03-02T12:59:59Z" AssetID="2000002" HomeID="1001" xsi:schemaLocation="http://iplatform.cablevision.com/namespaces/dvrplus/scheduler dvr-plus-server.xsd" xmlns="http://iplatform.cablevision.com/namespaces/dvrplus/scheduler" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>

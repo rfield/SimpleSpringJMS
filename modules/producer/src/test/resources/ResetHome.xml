@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ResetHome CurrentHomeID="1001" NewHomeID="2001" Service-Group="1" xsi:schemaLocation="http://iplatform.cablevision.com/namespaces/dvrplus/scheduler dvr-plus-server.xsd" xmlns="http://iplatform.cablevision.com/namespaces/dvrplus/scheduler" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<STBID MACAddress="112233bbccdd"/>
+</ResetHome>

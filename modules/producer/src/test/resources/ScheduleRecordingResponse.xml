@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScheduleRecordingResponse ReasonCode="200" ReasonDescrip-tion="Ok" xsi:schemaLocation="http://iplatform.cablevision.com/namespaces/dvrplus/scheduler dvr-plus-server.xsd" xmlns="http://iplatform.cablevision.com/namespaces/dvrplus/scheduler" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<PVRList>
+		<PVRListItem MACAddress="001122aabbcc" Reason-Code="436" ReasonDescription="Recording Already Scheduled" Ho-meID="1001" RecordingSize="0"/>
+	</PVRList>
+</ScheduleRecordingResponse>

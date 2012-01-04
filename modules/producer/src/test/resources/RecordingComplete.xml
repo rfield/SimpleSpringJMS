@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordingComplete ReasonCode="200" AssetID="1000001" ReasonDescrip-tion="Ok" xsi:schemaLocation="http://iplatform.cablevision.com/namespaces/dvrplus/scheduler dvr-plus-server.xsd" xmlns="http://iplatform.cablevision.com/namespaces/dvrplus/scheduler" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<PVRList>
+		<PVRListItem RecordingSize="16062500" MACAd-dress="aabbcc223355" HomeID="1001"/>
+		<PVRListItem RecordingSize="16062500" MACAd-dress="bbbbcc223355" HomeID="2001"/>
+		<PVRListItem RecordingSize="16062488" MACAd-dress="ccbbcc223355" HomeID="3001"/>
+		<PVRListItem RecordingSize="16062500" MACAd-dress="aabbcc223355" HomeID="1001"/>
+		<PVRListItem RecordingSize="14062500" MACAd-dress="aabbcc223344" ReasonCode="231" ReasonDescription="Partial Re-cording Completed" HomeID="1003"/>
+		<PVRListItem RecordingSize="0" MACAddress=" aabbcc001122" ReasonCode="435" ReasonDescription="Recording Aborted" HomeID="1002"/>
+	</PVRList>
+</RecordingComplete>

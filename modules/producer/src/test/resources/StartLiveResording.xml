@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StartLiveRecording TemporaryAssetID="2000001" CallSign="ABC" MACAddress="001122aabbcc" EndTime="2011-01-22T12:59:59Z" Home-ID=”1001” ServiceGroup="1001"  xsi:schemaLocation="http://iplatform.cablevision.com/namespaces/dvrplus/scheduler dvr-plus-server.xsd" xmlns="http://iplatform.cablevision.com/namespaces/dvrplus/scheduler" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>

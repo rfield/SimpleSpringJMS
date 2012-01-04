@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HomeProfileDetailsResponse FreeSize="120000000" Allocation-Size="160000000" HomeID="1001" ServiceGroup="1" Reason-Code="200" ReasonDescription="Ok" xsi:schemaLocation="http://iplatform.cablevision.com/namespaces/dvrplus/scheduler dvr-plus-server.xsd" xmlns="http://iplatform.cablevision.com/namespaces/dvrplus/scheduler" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<STBProfileList>
+		<STBID MACAddress="112233bbccdd"/>
+	</STBProfileList>
+	<RecordingList>
+		<Recording RecordingSize="16062500" Reason-Code="230" ReasonDescription="Recording Complete" Asse-tID="1000001"/>
+		<Recording RecordingSize="6062500" ReasonCode="240" ReasonDescription="Recording In Progress" AssetID="1000002"/>
+	</RecordingList>
+</HomeProfileDetailsResponse>

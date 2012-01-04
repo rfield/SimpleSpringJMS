@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServiceGroupList ReasonCode="200" ReasonDescription="Ok" xsi:schemaLocation="http://iplatform.cablevision.com/namespaces/dvrplus/scheduler dvr-plus-server.xsd" xmlns="http://iplatform.cablevision.com/namespaces/dvrplus/scheduler" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ServiceGroup ID="1"/>
+	<ServiceGroup ID="2"/>
+	<ServiceGroup ID="3"/>
+	<ServiceGroup ID="4"/>
+</ServiceGroupList>

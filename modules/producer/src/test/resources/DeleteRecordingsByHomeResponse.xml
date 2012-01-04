@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DeleteRecordingsByHomeResponse ReasonCode="200" ReasonDe-scription="Ok" xsi:schemaLocation="http://iplatform.cablevision.com/namespaces/dvrplus/scheduler dvr-plus-server.xsd" xmlns="http://iplatform.cablevision.com/namespaces/dvrplus/scheduler" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<RecordingList>
+			<Recording ReasonCode="250" ReasonDescription=" Playback In Progress" AssetID="1000003"/>
+			<Recording ReasonCode="438" ReasonDescrip-tion="Recording Not Found" AssetID="1000004"/>
+			<Recording ReasonCode="438" ReasonDescrip-tion="Recording Not Found" AssetID="1000004"/>
+	</RecordingList>
+</DeleteRecordingsByHomeResponse>
